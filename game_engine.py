@@ -53,11 +53,11 @@ class game:
         #Checks win condition
         #if player won, game resets 
         if self.Game_won == 1:
-            print('Congrats' + player + 'won')
+            print('Congrats : ' + player + ' won!')
             self.Set_game_board(self.lenx, self.leny)
             sys.exit()
         if self.Game_draw == 1:
-            print('It\'s a draw')
+            print('It\'s a draw!')
             self.Set_game_board(self.lenx, self.leny)    
             sys.exit()
   
