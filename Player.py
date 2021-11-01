@@ -32,13 +32,13 @@ class player():
 class Computer_random_tictactoe(player):
     def __init__(self, player, order, color):
         super().__init__(player, order, color)
-        if order == 0:
+        if self.order == 0:
             self.letter = 'X'
         else:
             self.letter = 'O'
         
-    def get_move(self):
-        choice = random.choice(game_engine.tictactoe.available_moves())
+    def get_move(self,game):
+        choice = random.choice(game.available_moves())
         return choice
     
     
@@ -47,20 +47,20 @@ class Human_player_tictactoe(player):
         #This calls the methods from player
         super().__init__(player, order, color)
         #this assigns the letter based on order
-        if order == 0:
+        if self.order == 0:
             self.letter = 'X'
         else:
             self.letter = 'O'
+
         
-    def get_move(self):
-        print('Hoi')
+    def get_move(self,game):
         Legal_choice = False
         while Legal_choice == False:
-            choice = input('Choose an option : ') #This should be extended for checkers or chess
-            if any(x == choice for x in game_engine.tictactoe.available_moves()):
+            choice = int(input('Choose an option : ')) #This should be extended for checkers or chess
+            if any(x == choice for x in game.available_moves()):
                 Legal_choice = True
             else:
-                print('the option was not available, choose from '+ game_engine.tictactoe.available_moves())
+                print('the option was not available, choose from '+ str(game_engine.tictactoe.available_moves(game)))
         return choice
 
 #if __name__ == "__main__":
